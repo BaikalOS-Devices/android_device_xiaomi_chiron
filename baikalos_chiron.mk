@@ -19,23 +19,18 @@
 # product configuration (apps).
 #
 
-$(call inherit-product, device/xiaomi/chiron/full_chiron.mk)
-
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
+# Inherit from chiron device
+$(call inherit-product, device/xiaomi/chiron/device.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Inherit some common baikalos stuff.
+$(call inherit-product, vendor/baikalos/config/common_full_phone.mk)
 
-# must be before including omni part
-TARGET_BOOTANIMATION_SIZE := 1080p
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-
-PRODUCT_NAME := omni_chiron
+PRODUCT_NAME := baikalos_chiron
 PRODUCT_DEVICE := chiron
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI MIX 2
