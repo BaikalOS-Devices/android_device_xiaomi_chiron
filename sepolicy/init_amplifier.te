@@ -1,0 +1,16 @@
+type init_amplifier, domain;
+type init_amplifier_exec, exec_type, vendor_file_type, file_type;
+
+# Allow for transition from init domain to init_amplifier
+init_daemon_domain(init_amplifier)
+
+# Allow read and write to sound card device
+allow init_amplifier audio_device:chr_file rw_file_perms;
+allow init_amplifier audio_device:dir search;
+
+# Allow executing tinyplay
+allow init_amplifier system_file:file execute_no_trans;
+
+# Shell script needs to execute /vendor/bin/sh
+allow init_amplifier vendor_shell_exec:file rx_file_perms;
+allow init_amplifier vendor_toolbox_exec:file rx_file_perms;
