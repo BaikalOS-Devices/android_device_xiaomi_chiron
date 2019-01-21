@@ -1,5 +1,8 @@
 # Amplifier & ultrasound
 /persist/audio(/.*)?                                          u:object_r:audio_persist_file:s0
 
+# Shell scripts
+/vendor/bin/init\.amplifier\.sh                                 u:object_r:init_amplifier_exec:s0
+
 # Ultrasound
 /dev/elliptic(.*)?                                            u:object_r:sound_device:s0
