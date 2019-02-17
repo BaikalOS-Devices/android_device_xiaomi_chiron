@@ -6,3 +6,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display density
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=440
+
+# Ultrasound
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.audio.us.proximity=true
